@@ -1,4 +1,4 @@
-# InstallAditionalSoftwareAfterWindowsInstallation
+# SoftwareInstallationScript
 This Project allows you to run Chocolatey installations out of a CSV file. Since I am reinstalling my Windows now and then, I have to reinstall all applications. Since I am pretty lazy, I tried to automate this. 
 
 # How to use
