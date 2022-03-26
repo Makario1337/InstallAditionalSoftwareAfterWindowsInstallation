@@ -24,7 +24,10 @@ else {
     foreach ( $Appilcation in $Appllication_List){
 
         $Install = $Appilcation.split(';')
-        choco install $Install -y 
+        Clear-Host
+        write-host "Now installing" $Install
+        C:\ProgramData\chocolatey\bin\choco.exe install $Install -y | Out-File C:\temp\install.log
     }
+    Set-ExecutionPolicy Restricted  
     exit
 }
