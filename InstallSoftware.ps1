@@ -1,6 +1,5 @@
 ﻿$exec_policy = Get-ExecutionPolicy 
-$Appllication_List = (Get-Content "c:\temp\toinstall.csv")
-
+$Appllication_List = (Get-Content "C:\temp\Install.csv")
  
 function TestForAdminRights {
 $currentUser = New-Object Security.Principal.WindowsPrincipal $([Security.Principal.WindowsIdentity]::GetCurrent())
@@ -13,7 +12,7 @@ if ($elevated) {
 } else {
 Start-Process powershell.exe -Verb RunAs -ArgumentList ('-noprofile -noexit -file "{0}" -elevated' -f ($myinvocation.MyCommand.Definition))
 }
-Exit
+exit
 }
 
 if($exec_policy -ne 'Bypass' ){
@@ -26,7 +25,7 @@ else {
         $Install = $Appilcation.split(';')
         Clear-Host
         write-host "Now installing" $Install
-        C:\ProgramData\chocolatey\bin\choco.exe install $Install -y | Out-File C:\temp\install.log
+        C:\ProgramData\chocolatey\bin\choco.exe install $Install -y | Out-File C:\temp\Install.log
     }
     Set-ExecutionPolicy Restricted  
     exit
